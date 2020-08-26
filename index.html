@@ -19,8 +19,8 @@
             width: 100%;
             padding: 5%;
             box-sizing: border-box;
-            text-align: center;
-            border: 1px solid;
+            /* text-align: center; */
+            /* border: 1px solid; */
         }
 
         .seg-1 h1 {
@@ -33,7 +33,7 @@
         }
     </style>
     <div class="seg-1">
-        <h1>Halo Selamat datang,</h1>
+        <h1>Selamat datang,</h1>
         <p>Silahkan tinggalkan pesan anda..</p>
     </div>
 
@@ -42,6 +42,8 @@
             margin-top: 1rem;
             width: 100%;
             box-sizing: border-box;
+            padding: 0.5rem;
+            padding-bottom: 1rem;
             border: 1px solid;
         }
 
@@ -55,12 +57,15 @@
             display: flex;
             justify-content: center;
             box-sizing: border-box;
-            border: 1px solid;
+            /* border: 1px solid; */
         }
 
         .seg-2 h3 {
             text-align: center;
-            border: 1px solid;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid;
+            /* border: 1px solid; */
+            margin: 0.2rem 0 0.2rem 0;
         }
 
         .seg-2 .btn button {
@@ -76,11 +81,18 @@
             width: 100%;
             box-sizing: border-box;
         }
+
+        .seg-2 form .user p {
+            margin: 0;
+        }
+
+        .seg-2 .user.nama input {
+            padding: 0.2rem;
+        }
     </style>
     <div class="seg-2">
-        <script>var submitted = false;</script>
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)
-    {window.location='https://google.com';}"></iframe>
+    {window.location='success.html';}"></iframe>
 
         <form
             action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSfqUHtR0GY5R8NBoJ8zk5O4Uz0rrjWZf3OPdWTb69qg03kQTw/formResponse"
@@ -89,15 +101,17 @@
             <h3>Isi pesan</h3>
 
             <div class="user nama">
+                <p id="notice-nama"></p>
                 <label for="nama"><b>Nama</b></label>
-                <input type="text" name="entry.867353645" id="nama">
+                <input id="nama" type="text" name="entry.867353645" required autofocus>
             </div>
             <div class="user pesan">
+                <p id="notice-pesan"></p>
                 <label for="pesan"><b>Pesan</b></label>
-                <textarea name="entry.324445980" id="pesan" cols="30" rows="10"></textarea>
+                <textarea name="entry.324445980" id="pesan" cols="30" rows="10" required></textarea>
             </div>
             <div class="btn">
-                <button type="submit">kirim</button>
+                <button onclick="kirim()" type="submit">kirim</button>
             </div>
         </form>
     </div>
@@ -115,7 +129,22 @@
 
 
 
+    <script src="script.js"></script>
 
+    <script>
+        var nama = document.getElementById("nama").value;
+        var pesan = document.getElementById("pesan").value;
+        var noticeNama = document.getElementById("notice-nama");
+        var noticePesan = document.getElementById("notice-pesan");
+
+        if (nama === "") {
+            noticeNama.innerHTML = "nama belum diisi !"
+        }
+        if (pesan === "") {
+            noticePesan.innerHTML = "pesan belum diisi !"
+        }
+
+    </script>
 </body>
 
 </html>
