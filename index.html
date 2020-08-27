@@ -113,6 +113,9 @@
             <div class="btn">
                 <button onclick="kirim()" type="submit">kirim</button>
             </div>
+
+            <p id="load"></p>
+
         </form>
     </div>
 
@@ -136,12 +139,17 @@
         var pesan = document.getElementById("pesan").value;
         var noticeNama = document.getElementById("notice-nama");
         var noticePesan = document.getElementById("notice-pesan");
+        var load = document.getElementById("load");
 
         if (nama === "") {
             noticeNama.innerHTML = "nama belum diisi !"
         }
         if (pesan === "") {
             noticePesan.innerHTML = "pesan belum diisi !"
+        }
+
+        function kirim() {
+            load.innerHTML = "Sedang diproses ..."
         }
 
     </script>
